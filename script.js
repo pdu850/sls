@@ -17,8 +17,8 @@ obstacleImages[2].src = 'Sam3.png';
 
 let samX = canvas.width / 2;
 let samY = canvas.height - 100;
-const samWidth = 50;
-const samHeight = 50;
+const samWidth = 200;
+const samHeight = 200;
 
 let obstacles = [];
 let score = 0;
@@ -40,7 +40,7 @@ function update() {
     ctx.drawImage(samImage, samX, samY, samWidth, samHeight);
 
     // Create obstacles
-    if (Math.random() < 0.02) { 
+    if (Math.random() < 0.05) { 
         let obstacle = {
             x: Math.random() * (canvas.width - 30),
             y: -30,
@@ -52,7 +52,7 @@ function update() {
     }
 
     // Move and draw obstacles
-    for (let i = obstacles.length - 1; i >= 0; i--) {
+    for (let i = obstacles.length - 5; i >= 0; i--) {
         obstacles[i].y += 5;
         ctx.drawImage(obstacles[i].image, obstacles[i].x, obstacles[i].y, obstacles[i].width, obstacles[i].height);
 
