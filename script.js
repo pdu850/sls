@@ -16,9 +16,9 @@ obstacleImages[1].src = 'Sam2.png';
 obstacleImages[2].src = 'Sam3.png';
 
 let samX = canvas.width / 2;
-let samY = canvas.height - 100;
-const samWidth = 200;
-const samHeight = 200;
+let samY = canvas.height - 150;
+const samWidth = 55;
+const samHeight = 55;
 
 let obstacles = [];
 let score = 0;
@@ -40,19 +40,19 @@ function update() {
     ctx.drawImage(samImage, samX, samY, samWidth, samHeight);
 
     // Create obstacles
-    if (Math.random() < 0.05) { 
+    if (Math.random() < 0.07) { 
         let obstacle = {
             x: Math.random() * (canvas.width - 30),
-            y: -30,
-            width: 30,
-            height: 30,
+            y: -35,
+            width: 40,
+            height: 40,
             image: obstacleImages[Math.floor(Math.random() * obstacleImages.length)]
         };
         obstacles.push(obstacle);
     }
 
     // Move and draw obstacles
-    for (let i = obstacles.length - 5; i >= 0; i--) {
+    for (let i = obstacles.length - 1; i >= 0; i--) {
         obstacles[i].y += 5;
         ctx.drawImage(obstacles[i].image, obstacles[i].x, obstacles[i].y, obstacles[i].width, obstacles[i].height);
 
@@ -82,7 +82,7 @@ function update() {
 
 function gameOver() {
     gameOverFlag = true;
-    alert("Game Over! Your score: " + score);
+    alert("Oh no! Sam got Sam'd! Your score: " + score);
     startGame(); // Restart the game
 }
 
